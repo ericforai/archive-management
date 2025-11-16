@@ -10,8 +10,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'your-secret-key-here-change-in-production'
     
     # 数据库配置 - 使用SQLite（Railway免费版兼容性更好）
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'sqlite:///instance/electronic_archive.db'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or f'sqlite:///{os.path.abspath("instance/electronic_archive.db")}'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     # JWT配置
